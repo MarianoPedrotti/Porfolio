@@ -11,7 +11,7 @@
         <p class="lead text-primary mb-4 fw-semibold">{{ project.stack }}</p>
 
         <div class="mb-4 shadow-lg rounded overflow-hidden border">
-            <img :src="project.imageURL" :alt="'Captura de ' + project.title" class="img-fluid project-header-image">
+            <img :src="encodeURI(project.imageURL)" :alt="'Captura de ' + project.title" class="img-fluid project-header-image">
         </div>
 
         <p class="fs-5 text-white mb-5">{{ project.description }}</p>
@@ -35,7 +35,7 @@
                         :data-bs-target="'#carousel-' + index" 
                         :data-bs-slide-to="sIndex" 
                         :class="{ active: sIndex === 0 }" 
-                        ::aria-current="sIndex === 0 ? 'page' : undefined" 
+                        :aria-current="sIndex === 0 ? 'page' : undefined" 
                         :aria-label="'Slide ' + (sIndex + 1)">
                       </button>
                     </div>
@@ -46,7 +46,7 @@
                         class="carousel-item" 
                         :class="{ active: sIndex === 0 }"
                       >
-                        <img :src="screenshot.imageURL" class="d-block w-100 gallery-carousel-image" :alt="screenshot.altText || 'Captura de pantalla'">
+                        <img :src="encodeURI(screenshot.imageURL)" class="d-block w-100 gallery-carousel-image" :alt="screenshot.altText || 'Captura de pantalla'">
                       </div>
                     </div>
 

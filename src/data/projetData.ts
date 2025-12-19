@@ -4,7 +4,7 @@ import type { Project } from '../types/projec';
 export const projectsData: Project[] = [
     
     {
-      imageURL: '/imagen/sistema Gestion/presentacion.png',
+      imageURL: '/imagen/sistema-Gestion/presentacion.png',
       title: 'Sistema de Gestión de Presupuesto y Stock',
       stack: 'C# .NET + SQL Server',
       description: `Sistema de gestión de presupuestos desarrollado en C#, con persistencia en SQL Server. Implementa módulos de clientes, productos y presupuestos, incorporando validaciones, manejo de transacciones y control de stock al confirmar operaciones.
@@ -17,39 +17,39 @@ El diseño modular permite una navegación centralizada y una clara separación 
         {
             description: 'Vista inicial de la aplicación, con un menú centralizado que permite la navegación entre los distintos módulos del sistema. Las vistas se renderizan dentro de una ventana contenedora, garantizando consistencia visual y control del flujo de navegación.',
             screenshots: [
-                { imageURL: '/imagen/sistema Gestion/Home.png', altText: 'Dashboard Principal' }
+                { imageURL: '/imagen/sistema-Gestion/Home.png', altText: 'Dashboard Principal' }
             ]
         },
          {
             description: 'Vista de gestión de clientes, que incluye un formulario de carga y edición, acciones mediante botones y una tabla (DataGridView) para la visualización de registros. Permite seleccionar un cliente desde la tabla para autocompletar el formulario, e incorpora validaciones de datos y mensajes de advertencia ante entradas incorrectas.',
             screenshots: [
-                { imageURL: '/imagen/sistema Gestion/Cliente2.png', altText: 'Abm cliente' },
-                { imageURL: '/imagen/sistema Gestion/alguna validacion.png', altText: 'Validacion' }
+                { imageURL: '/imagen/sistema-Gestion/Cliente2.png', altText: 'Abm cliente' },
+                { imageURL: '/imagen/sistema-Gestion/alguna-validacion.png', altText: 'Validacion' }
             ]
         },
         {
             description: 'Módulo de gestión de productos, con formulario reutilizable para alta y modificación, listado de productos en DataGridView y selección de registros para precarga de datos. Incluye validaciones de campos y notificaciones visuales.',
             screenshots: [
-                { imageURL: '/imagen/sistema Gestion/producto3.png', altText: 'Abm producto' }
+                { imageURL: '/imagen/sistema-Gestion/producto3.png', altText: 'Abm producto' }
             ]
         },
         {
             description: 'Módulo de gestión de presupuestos, con manejo de estados de transacción. Los presupuestos pueden ser guardados y editados sin impactar el stock, y al momento de la confirmación se realiza la actualización del inventario. Implementa control de flujo y validaciones de negocio.',
             screenshots: [
-                { imageURL: '/imagen/sistema Gestion/presupuesto.png', altText: 'Gestion presupuesto' },
-                { imageURL: '/imagen/sistema Gestion/productosAgregados.png', altText: 'Detalle presupuesto' },
-                {imageURL: '/imagen/sistema Gestion/ValidacionTransaccion.png', altText: 'validacion Transaccion' }
+                { imageURL: '/imagen/sistema-Gestion/presupuesto.png', altText: 'Gestion presupuesto' },
+                { imageURL: '/imagen/sistema-Gestion/productosAgregados.png', altText: 'Detalle presupuesto' },
+                {imageURL: '/imagen/sistema-Gestion/ValidacionTransaccion.png', altText: 'validacion Transaccion' }
             ]
         },{
             description: 'Módulo de gestión de presupuestos, con manejo de estados de transacción. Los presupuestos pueden ser guardados y editados sin impactar el stock, y al momento de la confirmación se realiza la actualización del inventario. Implementa control de flujo y validaciones de negocio.',
             screenshots: [
-                { imageURL: '/imagen/sistema Gestion/DetallePresupuest01.png', altText: 'Visualizacion Detalle Presupuesto' },
-                { imageURL: '/imagen/sistema Gestion/DetallePresupuesto2.png', altText: 'Detalle presupuesto existente' }
+                { imageURL: '/imagen/sistema-Gestion/DetallePresupuest01.png', altText: 'Visualizacion Detalle Presupuesto' },
+                { imageURL: '/imagen/sistema-Gestion/DetallePresupuesto2.png', altText: 'Detalle presupuesto existente' }
             ]
         },{
             description: 'Diagrama entidad relación del sistema, que muestra las entidades principales y sus relaciones dentro de la base de datos.',
             screenshots: [
-                { imageURL: '/imagen/sistema Gestion/Tablas.png', altText: 'Diagrama entidad relación' },
+                { imageURL: '/imagen/sistema-Gestion/Tablas.png', altText: 'Diagrama entidad relación' },
             ]
         }
       ]

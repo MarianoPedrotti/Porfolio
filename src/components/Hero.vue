@@ -25,7 +25,7 @@
 
      <div class="col-md-5 text-center">
     <img 
-        src="../../imagen/fotoPortafolio.jpg" 
+        src="/imagen/fotoPortafolio.jpg" 
         alt="Foto de Mariano Pedrotti" 
         class="img-fluid rounded-pill shadow-lg profile-avatar" style="max-width: 300px; height: auto;" 
     />
