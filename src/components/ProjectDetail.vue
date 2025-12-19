@@ -30,12 +30,12 @@
                     
                     <div v-if="item.screenshots.length > 1" class="carousel-indicators">
                       <button 
-                        v-for="(screenshot, sIndex) in item.screenshots" :key="sIndex" 
+                        v-for="(_, sIndex) in item.screenshots" :key="sIndex" 
                         type="button" 
                         :data-bs-target="'#carousel-' + index" 
                         :data-bs-slide-to="sIndex" 
                         :class="{ active: sIndex === 0 }" 
-                        :aria-current="sIndex === 0 ? 'true' : null" 
+                        ::aria-current="sIndex === 0 ? 'page' : undefined" 
                         :aria-label="'Slide ' + (sIndex + 1)">
                       </button>
                     </div>
