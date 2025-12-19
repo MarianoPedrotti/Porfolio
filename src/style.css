@@ -1,0 +1,102 @@
+/* src/style.css */
+
+/* NO IMPORTAR BOOTSTRAP AQUÍ — ya se importa en main.ts */
+
+/* ========================================= */
+/* 2. SOBRESCRITURA DE PALETA DE COLOR */
+/* ========================================= */
+:root, [data-bs-theme=dark] {
+  --color-deep-blue: #1E3A8A;
+  --color-steel-gray: #829ef3;
+  --color-light-gray: #E2E8F0;
+  --color-gold-accent: #FBBF24;
+  --color-white: #FFFFFF;
+  
+  --bs-primary: var(--color-gold-accent); 
+  --bs-primary-rgb: 251, 191, 36;
+  --bs-secondary: var(--color-steel-gray); 
+  --bs-body-bg: var(--color-deep-blue);
+  --bs-body-color: var(--color-white);
+  --bs-body-color-rgb: 255, 255, 255;
+  --bs-secondary-color: var(--color-steel-gray);
+  --bs-link-color: var(--color-gold-accent);
+  --bs-link-hover-color: #ffda7a;
+  
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+}
+
+/* ========================================= */
+/* 3. ESTILOS GLOBALES */
+/* ========================================= */
+
+/* ELIMINA display: flex; place-items: center; — rompe el layout */
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: var(--color-deep-blue); 
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  background-color: transparent; 
+}
+
+.card {
+  background-color: var(--color-light-gray); 
+  color: #1a1a1a; 
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: left;
+}
+
+/* Forzar colores de botones (si bootstrap aún los sobrescribe) */
+.btn-primary {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: #000000 !important;
+}
+
+.btn-outline-primary {
+  color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--bs-primary) !important;
+  border-color: var(--bs-primary) !important;
+  color: #000000 !important;
+}
+
+
+/* ========================================= */
+/* ESTILOS PERSONALIZADOS PARA EL AVATAR */
+/* ========================================= */
+
+.profile-avatar {
+    /* Borde grueso de color Gold Accent */
+    border: 3px solid var(--color-gold-accent); 
+    
+    /* Pequeña transición para que los efectos de hover sean suaves */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Efecto al pasar el ratón (Hover Effect) */
+.profile-avatar:hover {
+    /* Efecto de levantamiento: Mueve la foto ligeramente hacia arriba (zoom sutil) */
+    transform: scale(1.05); 
+    
+    /* Sombra más intensa al hacer hover */
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.8); 
+    /* El valor rgba es el de tu Gold Accent (#FBBF24) con opacidad */
+}
