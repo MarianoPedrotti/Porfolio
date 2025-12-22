@@ -3,7 +3,7 @@
     <nav class="d-flex gap-2">
       <button class="btn btn-outline-primary btn-sm" @click="scrollTo('projects')">Proyectos</button>
       <button class="btn btn-outline-primary btn-sm" @click="scrollTo('contact')">Contacto</button>
-      <a href="/public/cv.pdf" class="btn btn-primary btn-sm" @click.prevent="openCV">Descargar CV</a>
+      <a href="/cv.pdf" class="btn btn-primary btn-sm" download>Descargar CV</a>
     </nav>
   </div>
   
@@ -25,9 +25,7 @@
 function scrollTo(id) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 }
-function openCV() {
-  alert('📄 Aquí irá el enlace a tu CV.')
-}
+
 </script>
 
 <style scoped>
