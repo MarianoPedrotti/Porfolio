@@ -3,7 +3,7 @@
     <nav class="d-flex gap-2">
       <button class="btn btn-outline-primary btn-sm" @click="scrollTo('projects')">Proyectos</button>
       <button class="btn btn-outline-primary btn-sm" @click="scrollTo('contact')">Contacto</button>
-      <a href="/cv.pdf" class="btn btn-primary btn-sm" download>Descargar CV</a>
+      <a href="/public/CvMarianoPedrotti.pdf" class="btn btn-primary btn-sm" download>Descargar CV</a>
     </nav>
   </div>
   
