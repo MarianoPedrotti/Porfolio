@@ -1,8 +1,8 @@
 <template>
   <div class="container my-5">
-    <button v-if="project" @click="goBack" class="btn btn-outline-secondary mb-4 shadow-sm">
+    <RouterLink v-if="project" :to="{ name: 'home', hash: '#projects' }" class="btn btn-outline-secondary mb-4 shadow-sm">
       <i class="bi bi-arrow-left"></i> Volver a Proyectos
-    </button>
+    </RouterLink>
 
     <div v-if="project" class="row animate__animated animate__fadeIn">
       <div class="col-lg-12">
@@ -84,47 +84,31 @@
           <a :href="project.link" target="_blank" class="btn btn-dark btn-lg px-4">
             <i class="bi bi-github me-2"></i> Ver Código Fuente
           </a>
-          <button @click="goBack" class="btn btn-outline-secondary btn-lg px-4">
+          <RouterLink :to="{ name: 'home', hash: '#projects' }" class="btn btn-outline-secondary btn-lg px-4">
             Volver a la Lista
-          </button>
+          </RouterLink>
         </div>
       </div>
     </div>
 
-    <div v-else class="text-center py-5">
-      <div class="spinner-border text-primary mb-3" role="status"></div>
-      <h3>Proyecto no encontrado</h3>
-      <router-link to="/" class="btn btn-primary mt-3">Volver al inicio</router-link>
-    </div>
+    <section v-else class="text-center py-5" aria-labelledby="project-not-found-title">
+      <h1 id="project-not-found-title" class="h3">Proyecto no encontrado</h1>
+      <p class="text-white">El proyecto solicitado no está disponible.</p>
+      <RouterLink :to="{ name: 'home', hash: '#projects' }" class="btn btn-primary mt-3">Volver a proyectos</RouterLink>
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-import { projectsData } from '../data/projetData'; 
-import type { Project } from '../types/projec'; 
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import { projectsData } from '../data/projetData';
 
 const route = useRoute();
-const router = useRouter();
-const project = ref<Project | null>(null);
-
-const fetchProjectDetails = () => {
-  const slug = route.params.slug as string; 
-  const foundProject = projectsData.find(p => p.slug === slug);
-  
-  if (foundProject) {
-    project.value = foundProject;
-  } else {
-    router.replace({ name: 'NotFound' });
-  }
-};
-
-const goBack = () => {
-  router.back(); 
-};
-
-onMounted(fetchProjectDetails);
+const project = computed(() => {
+  const slug = typeof route.params.slug === 'string' ? route.params.slug : '';
+  return projectsData.find((candidate) => candidate.slug === slug);
+});
 </script>
 
 <style scoped>

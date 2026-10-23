@@ -1,9 +1,8 @@
 <template>
   <div class="fixed-top d-flex justify-content-end p-3" >
     <nav class="d-flex gap-2">
-      <button class="btn btn-outline-primary btn-sm" @click="scrollTo('projects')">Proyectos</button>
-      <button class="btn btn-outline-primary btn-sm" @click="scrollTo('contact')">Contacto</button>
-      <a href="/MarianoPedrotti-2026-BackendDeveloper.pdf" class="btn btn-primary btn-sm" download>Descargar CV</a>
+      <RouterLink :to="{ name: 'home', hash: '#projects' }" class="btn btn-outline-primary btn-sm">Proyectos</RouterLink>
+      <RouterLink :to="{ name: 'home', hash: '#contact' }" class="btn btn-outline-primary btn-sm">Contacto</RouterLink>
     </nav>
   </div>
   
@@ -19,14 +18,6 @@
     </div>
     </header>
 </template>
-
-<script setup>
-  
-function scrollTo(id) {
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-}
-
-</script>
 
 <style scoped>
 .avatar {
