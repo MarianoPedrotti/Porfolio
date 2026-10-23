@@ -34,6 +34,17 @@ const router = createRouter({
   // Historial basado en la API estándar del navegador (recomendado)
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
+  scrollBehavior(to, _from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+
+    if (to.hash) {
+      return { el: to.hash };
+    }
+
+    return { top: 0 };
+  },
 });
 
 export default router;

@@ -21,13 +21,6 @@ El diseño modular permite una navegación centralizada y una clara separación 
             ]
         },
          {
-            description: 'Vista de gestión de clientes, que incluye un formulario de carga y edición, acciones mediante botones y una tabla (DataGridView) para la visualización de registros. Permite seleccionar un cliente desde la tabla para autocompletar el formulario, e incorpora validaciones de datos y mensajes de advertencia ante entradas incorrectas.',
-            screenshots: [
-                { imageURL: '/imagen/sistema-Gestion/Cliente2.png', altText: 'Abm cliente' },
-                { imageURL: '/imagen/sistema-Gestion/alguna-validacion.png', altText: 'Validacion' }
-            ]
-        },
-        {
             description: 'Módulo de gestión de productos, con formulario reutilizable para alta y modificación, listado de productos en DataGridView y selección de registros para precarga de datos. Incluye validaciones de campos y notificaciones visuales.',
             screenshots: [
                 { imageURL: '/imagen/sistema-Gestion/producto3.png', altText: 'Abm producto' }
@@ -74,7 +67,6 @@ El sistema permite operaciones de compra y venta, visualización de cotizaciones
             { imageURL: '/imagen/AriumX/principal.png', altText: 'Vista de login' },
             { imageURL: '/imagen/AriumX/RegistroFormulario.png', altText: 'Vista de registro' },
             { imageURL: '/imagen/AriumX/LoginFormulario.png', altText: 'Validación de email' },
-            { imageURL: '/imagen/AriumX/CamposLLenos.png', altText: 'Relleno formulario' },
             { imageURL: '/imagen/AriumX/Logeado.png', altText: 'Una vez logueado' }
           ]
         },
@@ -100,7 +92,7 @@ El sistema permite operaciones de compra y venta, visualización de cotizaciones
       ]
     },
     {
-      imageURL: '/imagen/CopiaRappi/inicio.png', 
+      imageURL: '/imagen/CopiaRappi/perfilUser2.png',
       title: 'Aplicación tipo Rappi — App Rappi',
       stack: 'Vue + Nodejs + Nestjs + PostgreSQL + TypeScript + Postman',
       description: `Aplicación web fullstack orientada a la simulación de una plataforma de delivery.
@@ -112,21 +104,6 @@ El frontend, construido con Vue, consume la API y permite la navegación y ejecu
       
       gallery: [
         {
-          description: 'Pantalla de inicio de la aplicación, que presenta la identidad visual del proyecto y las opciones de inicio de sesión y registro. Desde esta vista, el usuario puede acceder a los formularios correspondientes para autenticarse o crear una cuenta.',
-          screenshots: [ 
-            { imageURL: '/imagen/CopiaRappi/inicio.png', altText: 'Vista de principal' },
-          ]
-        },
-        {
-          description: 'Pantalla de registro, que permite la creación de cuentas para los distintos roles del sistema: usuarios, vendedores, repartidores y administradores. Cada formulario incluye validaciones de datos y control de errores antes del envío de la información. ',
-          // 🛑 CAMBIO: Aunque sea una sola imagen, debe ir dentro del array screenshots
-          screenshots: [
-            { imageURL: '/imagen/CopiaRappi/formularioRegistroUser.png', altText: 'Formulario de Registro de Usuario' },
-            { imageURL: '/imagen/CopiaRappi/formularioRegistroVendors.png', altText: 'Formulario de Registro de Vendedores' },
-            { imageURL: '/imagen/CopiaRappi/formularioRegistroDriver.png', altText: 'Formulario de Registro de Conductores' }
-          ]
-        },
-        {
           description: 'Pantalla de inicio de sesión, que permite la autenticación de usuarios según su rol, validando las credenciales y habilitando el acceso a las funcionalidades correspondientes dentro de la aplicación.',
           // 🛑 CAMBIO: Ajustado a la nueva interfaz
           screenshots: [
@@ -136,7 +113,6 @@ El frontend, construido con Vue, consume la API y permite la navegación y ejecu
           description: 'Vista principal del usuario, desde donde se permite la búsqueda de productos y tiendas, así como la gestión del perfil personal. Esta ventana centraliza las acciones principales del usuario dentro de la plataforma.',
           // 🛑 CAMBIO: Ajustado a la nueva interfaz
           screenshots: [
-            { imageURL: '/imagen/CopiaRappi/perfilUser.png', altText: 'Ventana user' },
             { imageURL: '/imagen/CopiaRappi/perfilUser2.png', altText: 'Ventana user busqueda' }
           ]
         },
@@ -144,7 +120,6 @@ El frontend, construido con Vue, consume la API y permite la navegación y ejecu
           description: 'Vista principal del repartidor (driver), desde donde se pueden visualizar los pedidos asignados y su estado, así como gestionar la información de su perfil. Esta ventana centraliza las acciones del repartidor dentro de la plataforma.',
           // 🛑 CAMBIO: Ajustado a la nueva interfaz
           screenshots: [
-            { imageURL: '/imagen/CopiaRappi/perfilDriver3.png', altText: 'Ventana Driver' },
             { imageURL: '/imagen/CopiaRappi/perfilDriver2.png', altText: 'Ventana Driver pedidos' }
           ]
         }, {
@@ -152,7 +127,7 @@ El frontend, construido con Vue, consume la API y permite la navegación y ejecu
           // 🛑 CAMBIO: Ajustado a la nueva interfaz
           screenshots: [
             { imageURL: '/imagen/CopiaRappi/perfilVendors.png', altText: 'Ventana Vendors' },
-            { imageURL: '/imagen/CopiaRappi/perfilVendors2.png', altText: 'Ventana Vendors funcionalidades' }
+            { imageURL: '/imagen/CopiaRappi/PerfilVendors2.png', altText: 'Ventana Vendors funcionalidades' }
           ]
         },
         {
