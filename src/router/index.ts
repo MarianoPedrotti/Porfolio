@@ -40,7 +40,10 @@ const router = createRouter({
     }
 
     if (to.hash) {
-      return { el: to.hash };
+      const target = document.getElementById(to.hash.slice(1));
+      if (target) {
+        return { el: target, top: parseFloat(getComputedStyle(target).scrollMarginTop) || 96 };
+      }
     }
 
     return { top: 0 };

@@ -1,28 +1,30 @@
-<template>
-  <div class="fixed-top d-flex justify-content-end p-3" >
-    <nav class="d-flex gap-2">
-      <RouterLink :to="{ name: 'home', hash: '#projects' }" class="btn btn-outline-primary btn-sm">Proyectos</RouterLink>
-      <RouterLink :to="{ name: 'home', hash: '#contact' }" class="btn btn-outline-primary btn-sm">Contacto</RouterLink>
-    </nav>
-  </div>
-  
-  <header class="mb-5"> 
-    <div class="d-flex align-items-center gap-3" style="margin-bottom: 70px; margin-top: 1px;">
-      <div>
-        <h1 class="h3 m-0">Mariano Pedrotti</h1>
-        <p class="h5 text-primary m-0 mt-2">Backend Developer</p>
-        <p class="text-muted mb-0 mt-3">
-          C# / .NET • Node.js / NestJS • SQL Server / PostgreSQL / Mongo DB• APIs
-        </p>
-      </div>
-    </div>
-    </header>
-</template>
-
-<style scoped>
-.avatar {
-  width: 74px;
-  height: 74px;
-  font-size: 1.3rem;
+<script setup lang="ts">
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+const route = useRoute()
+const open = ref(false)
+const toggle = ref<HTMLButtonElement>()
+const links = [
+  { label: 'Inicio', hash: '' },
+  { label: 'Proyectos', hash: '#projects' },
+  { label: 'Contacto', hash: '#contact' },
+]
+function closeWithEscape() {
+  if (open.value) { open.value = false; toggle.value?.focus() }
 }
-</style>
+watch(() => route.fullPath, () => { open.value = false })
+</script>
+
+<template>
+  <header class="site-header" @keydown.esc="closeWithEscape">
+    <nav class="site-container navigation" aria-label="Navegación principal">
+      <RouterLink class="brand" to="/" @click="open = false">Mariano Pedrotti<span aria-hidden="true">.</span></RouterLink>
+      <button ref="toggle" class="btn btn-outline-primary menu-toggle" :aria-expanded="open" aria-controls="primary-navigation" @click="open = !open">{{ open ? 'Cerrar' : 'Menú' }}</button>
+      <ul id="primary-navigation" class="nav-links" :class="{ 'is-open': open }">
+        <li v-for="link in links" :key="link.label">
+          <RouterLink :to="{ name: 'home', hash: link.hash }" :aria-current="route.name === 'home' && route.hash === link.hash ? 'location' : undefined" @click="open = false">{{ link.label }}</RouterLink>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</template>
