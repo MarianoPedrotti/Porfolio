@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 const open = ref(false)
 const toggle = ref<HTMLButtonElement>()
+const cvUrl = '/cv/Mariano-Pedrotti-CV.pdf'
 const links = [
   { label: 'Inicio', hash: '' },
   { label: 'Proyectos', hash: '#projects' },
@@ -24,6 +25,7 @@ watch(() => route.fullPath, () => { open.value = false })
         <li v-for="link in links" :key="link.label">
           <RouterLink :to="{ name: 'home', hash: link.hash }" :aria-current="route.name === 'home' && route.hash === link.hash ? 'location' : undefined" @click="open = false">{{ link.label }}</RouterLink>
         </li>
+        <li><a :href="cvUrl" download @click="open = false">Descargar CV</a></li>
       </ul>
     </nav>
   </header>

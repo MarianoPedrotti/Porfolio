@@ -5,7 +5,7 @@
 Rama: `feat/portfolio-redesign`, desde `89c1aa40fcfd2625550de6463254c98454857a28`.
 Vue 3, TypeScript, Vite y Bootstrap se conservan; sin nuevas dependencias de aplicación.
 `vercel.json`, los slugs anteriores y los recursos retirados en Etapa 1 se conservan.
-El CV sigue sin mostrarse: los documentos externos no se incorporaron al sitio.
+El CV actualizado se distribuye desde `/cv/Mariano-Pedrotti-CV.pdf` mediante la navegación principal.
 
 ## Diseño y componentes
 

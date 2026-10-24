@@ -3,12 +3,12 @@ import type { Project } from '../types/projec';
 
 export const projectsData: Project[] = [
     {
-      title: 'OptiGest',
+      title: 'OptiGest — Sistema de Gestión Comercial',
       slug: 'optigest',
       featured: true,
-      summary: 'Gestión comercial para un negocio real. Desarrollado, desplegado y utilizado en producción.',
+      summary: 'Sistema de gestión comercial utilizado en producción que centraliza la administración de clientes, productos, vehículos y ventas, incorporando financiación, gestión de cuotas, seguimiento de pagos y cuenta corriente.',
       stack: 'ASP.NET Core · Entity Framework Core · SQL Server · Vue 3 · TypeScript',
-      description: 'Sistema de gestión comercial que reúne clientes, productos, vehículos, ventas y seguimiento de pagos en una aplicación web utilizada en producción.',
+      description: 'Sistema de gestión comercial utilizado en producción que centraliza la administración de clientes, productos, vehículos y ventas, incorporando financiación, gestión de cuotas, seguimiento de pagos y cuenta corriente.',
       route: { name: 'project-detail', params: { slug: 'optigest' } },
       sections: [
         { title: 'Problema de negocio', text: 'El negocio necesitaba centralizar procesos comerciales gestionados mediante planillas Excel y operaciones manuales, incluyendo ventas, financiación y seguimiento de pagos.' },
@@ -32,7 +32,38 @@ export const projectsData: Project[] = [
         { title: 'Calidad y pruebas', text: 'Validé la aplicación con pruebas unitarias .NET, pruebas de integración con SQL Server, pruebas frontend y pruebas de extremo a extremo (E2E) con Playwright.' },
         { title: 'Despliegue y uso real', text: 'El sistema está desplegado y es utilizado en producción por el cliente. El trabajo abarca el análisis, el diseño, la implementación, las pruebas y el despliegue de una solución para necesidades reales.' },
       ],
-      gallery: [],
+      gallery: [
+        {
+          description: 'Administración de ventas con indicadores del período, filtros y listado de operaciones de demostración.',
+          screenshots: [
+            { imageURL: '/imagen/optigest/optigest-ventas.png', altText: 'Administración de ventas de demostración' },
+          ],
+        },
+        {
+          description: 'Administración de financiaciones de ventas de vehículos, con estado, cantidad de cuotas y saldo pendiente.',
+          screenshots: [
+            { imageURL: '/imagen/optigest/optigest-financiaciones.png', altText: 'Administración de financiaciones de vehículos de demostración' },
+          ],
+        },
+        {
+          description: 'Administración de cuotas de una financiación de vehículo, con vencimientos, montos, estado y acción de pago.',
+          screenshots: [
+            { imageURL: '/imagen/optigest/optigest-cuotas.png', altText: 'Administración de cuotas de una financiación de vehículo' },
+          ],
+        },
+        {
+          description: 'Estado de cuentas corrientes de clientes, con saldos, filtros y acceso al detalle.',
+          screenshots: [
+            { imageURL: '/imagen/optigest/optigest-cuentas-corrientes.png', altText: 'Listado de cuentas corrientes de demostración' },
+          ],
+        },
+        {
+          description: 'Detalle de movimientos de una cuenta corriente, con conceptos, importes debe y haber, y saldo.',
+          screenshots: [
+            { imageURL: '/imagen/optigest/optigest-movimientos-cuenta-corriente.png', altText: 'Detalle de movimientos de cuenta corriente de demostración' },
+          ],
+        },
+      ],
     },
     
     {
