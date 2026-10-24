@@ -99,3 +99,17 @@ Los metadatos sociales son globales: sin SSR/prerender ni imagen social nueva.
 - Los enlaces a repositorios secundarios permanecen retirados hasta su saneamiento externo.
 - Validación final: `npm ci`, build con TypeScript, `npm audit` sin vulnerabilidades,
   `git diff --check` y matriz Playwright/axe de 35 combinaciones correctas.
+
+## Revisión posterior de recursos
+
+- El propietario confirmó que el contenido visible de SistemaPresupuesto, AriumX y App
+  Rappi es demostrativo y ficticio; los secretos técnicos continúan siendo un criterio
+  independiente.
+- Se restauraron 14 capturas originales seleccionadas por su valor explicativo y se
+  mantuvieron dos derivados cuando ofrecen un encuadre superior.
+- Se restauraron los enlaces de SistemaPresupuesto y ExchangeAriumX tras no confirmar
+  credenciales técnicas literales en la revisión estática disponible.
+- App Rappi conserva su galería, pero su repositorio de tercero no se enlaza mientras
+  exista una contraseña literal de configuración sin remediar.
+- La selección pasó build con TypeScript, `npm audit`, `git diff --check` y matriz
+  Playwright/axe de 35 combinaciones. El detalle está en `docs/privacy-audit.md`.

@@ -43,6 +43,7 @@ export const projectsData: Project[] = [
       description: `Sistema de gestión de presupuestos desarrollado en C#, con persistencia en SQL Server. Implementa módulos de clientes, productos y presupuestos, incorporando validaciones, manejo de transacciones y control de stock al confirmar operaciones.
 
 El diseño modular permite una navegación centralizada y una clara separación de responsabilidades dentro de la aplicación.`,
+      link: 'https://github.com/MarianoPedrotti/SistemaPresupuesto',
       slug: 'presupuesto',
       route: { name: 'project-detail', params: { slug: 'presupuesto' } },
       gallery: [
@@ -55,21 +56,21 @@ El diseño modular permite una navegación centralizada y una clara separación 
          {
             description: 'Módulo de gestión de productos, con formulario reutilizable para alta y modificación, listado de productos en DataGridView y selección de registros para precarga de datos. Incluye validaciones de campos y notificaciones visuales.',
             screenshots: [
-                { imageURL: '/imagen/sistema-Gestion/gestion-productos-saneado.png', altText: 'Gestión de productos' }
+                { imageURL: '/imagen/sistema-Gestion/producto3.png', altText: 'Gestión de productos' }
             ]
         },
         {
             description: 'Módulo de gestión de presupuestos, con manejo de estados de transacción. Los presupuestos pueden ser guardados y editados sin impactar el stock, y al momento de la confirmación se realiza la actualización del inventario. Implementa control de flujo y validaciones de negocio.',
             screenshots: [
                 { imageURL: '/imagen/sistema-Gestion/presupuesto.png', altText: 'Gestion presupuesto' },
-                { imageURL: '/imagen/sistema-Gestion/presupuesto-lineas-saneado.png', altText: 'Detalle de presupuesto' },
-                { imageURL: '/imagen/sistema-Gestion/validacion-presupuesto-saneado.png', altText: 'Validación de transacción' }
+                { imageURL: '/imagen/sistema-Gestion/productosAgregados.png', altText: 'Detalle de presupuesto' },
+                { imageURL: '/imagen/sistema-Gestion/ValidacionTransaccion.png', altText: 'Validación de transacción' }
             ]
         },{
             description: 'Módulo de gestión de presupuestos, con manejo de estados de transacción. Los presupuestos pueden ser guardados y editados sin impactar el stock, y al momento de la confirmación se realiza la actualización del inventario. Implementa control de flujo y validaciones de negocio.',
             screenshots: [
                 { imageURL: '/imagen/sistema-Gestion/DetallePresupuest01.png', altText: 'Visualizacion Detalle Presupuesto' },
-                { imageURL: '/imagen/sistema-Gestion/detalle-presupuesto-saneado.png', altText: 'Detalle de presupuesto' }
+                { imageURL: '/imagen/sistema-Gestion/DetallePresupuesto2.png', altText: 'Detalle de presupuesto existente' }
             ]
         },{
             description: 'Diagrama entidad relación del sistema, que muestra las entidades principales y sus relaciones dentro de la base de datos.',
@@ -89,6 +90,7 @@ El backend, desarrollado en C# (ASP.NET Core), expone una API REST con validacio
 El frontend, construido con Vue 3, consume la API mediante Axios y gestiona el estado del usuario con Pinia, incluyendo persistencia en el navegador.
 
 El sistema permite operaciones de compra y venta, visualización de cotizaciones y gestión del historial de transacciones.`,
+      link: 'https://github.com/MarianoPedrotti/ExchangeAriumX',
       slug: 'ariumx',
       route: { name: 'project-detail', params: { slug: 'ariumx' } },
       
@@ -103,16 +105,27 @@ El sistema permite operaciones de compra y venta, visualización de cotizaciones
           ]
         },
         {
-          description: 'Módulo de transacciones con selección de registros y confirmación para eliminar operaciones desde la interfaz.',
+          description: 'Pantalla de mercado de criptomonedas, con visualización de datos actualizados y funcionalidades integradas de compra y venta. Incluye lógica de transacciones, validaciones de operaciones y sincronización del estado del usuario en el frontend.',
+          screenshots: [
+            { imageURL: '/imagen/AriumX/VistaVenta-Compra.png', altText: 'Mercado de criptomonedas' },
+            { imageURL: '/imagen/AriumX/VistaMonedas.png', altText: 'Monedas disponibles' },
+            { imageURL: '/imagen/AriumX/ValidacionSaldo.png', altText: 'Validación de saldo' },
+            { imageURL: '/imagen/AriumX/TransaccionExitosa.png', altText: 'Transacción exitosa' },
+          ],
+        },
+        {
+          description: 'Módulo de transacciones, donde se visualiza el historial de operaciones realizadas por el usuario y se permite seleccionar registros para eliminarlos desde la interfaz.',
           // 🛑 CAMBIO: Ajustado a la nueva interfaz
           screenshots: [
-            { imageURL: '/imagen/AriumX/eliminacion-transacciones-saneado.png', altText: 'Confirmación de eliminación de transacciones' }
-          ]
+            { imageURL: '/imagen/AriumX/HistorialTransacciones.png', altText: 'Historial de transacciones' },
+            { imageURL: '/imagen/AriumX/seleccionTransaccion.png', altText: 'Selección de transacciones' },
+            { imageURL: '/imagen/AriumX/eliminarTransaccion.png', altText: 'Confirmación de eliminación de transacciones' },
+          ],
         },
       ]
     },
     {
-      imageURL: '/imagen/CopiaRappi/usuario-saneado.png',
+      imageURL: '/imagen/CopiaRappi/perfilUser2.png',
       title: 'Aplicación tipo Rappi — App Rappi',
       summary: 'Aplicación de delivery con flujos diferenciados para usuarios, repartidores y vendedores.',
       stack: 'Vue + Nodejs + Nestjs + PostgreSQL + TypeScript + Postman',
@@ -133,14 +146,21 @@ El frontend, construido con Vue, consume la API y permite la navegación y ejecu
           description: 'Vista principal del usuario, desde donde se permite la búsqueda de productos y tiendas, así como la gestión del perfil personal. Esta ventana centraliza las acciones principales del usuario dentro de la plataforma.',
           // 🛑 CAMBIO: Ajustado a la nueva interfaz
           screenshots: [
-            { imageURL: '/imagen/CopiaRappi/usuario-saneado.png', altText: 'Búsqueda de restaurantes' }
+            { imageURL: '/imagen/CopiaRappi/perfilUser2.png', altText: 'Búsqueda de restaurantes' }
           ]
+        },
+        {
+          description: 'Vista principal del repartidor, desde donde se visualizan los pedidos asignados y su estado.',
+          // 🛑 CAMBIO: Ajustado a la nueva interfaz
+          screenshots: [
+            { imageURL: '/imagen/CopiaRappi/perfilDriver2.png', altText: 'Pedidos del repartidor' },
+          ],
         }, {
           description: 'Vista principal del vendedor (vendor), que permite la gestión de productos, incluyendo la creación, desactivación y eliminación de los mismos. Además, ofrece acceso a la visualización de pedidos, junto con reportes y estadísticas para el seguimiento de la actividad del comercio.',
           // 🛑 CAMBIO: Ajustado a la nueva interfaz
           screenshots: [
             { imageURL: '/imagen/CopiaRappi/vendor-saneado.png', altText: 'Panel de vendedor' },
-            { imageURL: '/imagen/CopiaRappi/vendor-compacto-saneado.png', altText: 'Funciones del vendedor' }
+            { imageURL: '/imagen/CopiaRappi/PerfilVendors2.png', altText: 'Funciones del vendedor' }
           ]
         },
         {
