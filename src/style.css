@@ -1,102 +1,110 @@
-/* src/style.css */
-
-/* NO IMPORTAR BOOTSTRAP AQUÍ — ya se importa en main.ts */
-
-/* ========================================= */
-/* 2. SOBRESCRITURA DE PALETA DE COLOR */
-/* ========================================= */
-:root, [data-bs-theme=dark] {
-  --color-deep-blue: #1E3A8A;
-  --color-steel-gray: #829ef3;
-  --color-light-gray: #E2E8F0;
-  --color-gold-accent: #FBBF24;
-  --color-white: #FFFFFF;
-  
-  --bs-primary: var(--color-gold-accent); 
-  --bs-primary-rgb: 251, 191, 36;
-  --bs-secondary: var(--color-steel-gray); 
-  --bs-body-bg: var(--color-deep-blue);
-  --bs-body-color: var(--color-white);
-  --bs-body-color-rgb: 255, 255, 255;
-  --bs-secondary-color: var(--color-steel-gray);
-  --bs-link-color: var(--color-gold-accent);
-  --bs-link-hover-color: #ffda7a;
-  
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+:root {
   color-scheme: dark;
+  --bg: #0a1730;
+  --surface: #11213d;
+  --raised: #172b4d;
+  --text: #f8fafc;
+  --muted: #cbd5e1;
+  --interaction: #93c5fd;
+  --gold: #fcd34d;
+  --border: #455c7c;
+  --space: 1rem;
+  --radius: 1rem;
+  --header-offset: 6rem;
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--text);
+  --bs-body-font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --bs-link-color: var(--interaction);
+  --bs-link-hover-color: var(--text);
 }
-
-/* ========================================= */
-/* 3. ESTILOS GLOBALES */
-/* ========================================= */
-
-/* ELIMINA display: flex; place-items: center; — rompe el layout */
-body {
-  margin: 0;
-  min-width: 320px;
-  background-color: var(--color-deep-blue); 
+body { margin: 0; line-height: 1.65; background: var(--bg); color: var(--text); }
+* { box-sizing: border-box; }
+img { max-width: 100%; }
+a { color: var(--interaction); text-underline-offset: .25em; }
+a:hover { color: var(--text); }
+:focus-visible { outline: 3px solid var(--gold) !important; outline-offset: 5px; box-shadow: none !important; }
+[tabindex='-1']:focus:not(:focus-visible) { outline: none; }
+[id] { scroll-margin-top: var(--header-offset); }
+h1, h2, h3 { line-height: 1.2; letter-spacing: -.025em; font-weight: 700; color: var(--text); overflow-wrap: anywhere; }
+h1 { font-size: clamp(2.25rem, 5vw, 4rem); }
+h2 { font-size: clamp(1.75rem, 3vw, 2.5rem); margin-bottom: 1.5rem; }
+h3 { font-size: 1.3rem; }
+p { margin-bottom: 1rem; }
+.site-container { width: min(100% - 2rem, 1120px); margin-inline: auto; }
+.section-space { padding-block: clamp(2.5rem, 6vw, 5rem); }
+.muted { color: var(--muted); }
+.gold { color: var(--gold); }
+.eyebrow { color: var(--interaction); font-size: .8rem; text-transform: uppercase; letter-spacing: .13em; font-weight: 700; margin-bottom: 1rem; }
+.lead { font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 400; }
+.reading-width { max-width: 72ch; white-space: pre-line; }
+.actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+.btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .7rem 1.1rem; border-radius: .5rem; font-weight: 600; white-space: normal; }
+.btn-primary { --bs-btn-bg: var(--gold); --bs-btn-color: var(--bg); --bs-btn-border-color: var(--gold); --bs-btn-hover-bg: #ffe58c; --bs-btn-hover-color: var(--bg); --bs-btn-hover-border-color: #ffe58c; --bs-btn-active-bg: #ffe58c; --bs-btn-active-color: var(--bg); --bs-btn-disabled-bg: var(--gold); --bs-btn-disabled-color: var(--bg); }
+.btn-outline-primary { --bs-btn-color: var(--interaction); --bs-btn-border-color: var(--interaction); --bs-btn-hover-bg: var(--raised); --bs-btn-hover-color: var(--text); --bs-btn-hover-border-color: var(--text); --bs-btn-active-bg: var(--raised); --bs-btn-active-color: var(--text); }
+.skip-link { position: fixed; top: .5rem; left: 1rem; z-index: 100; padding: .75rem; background: var(--gold); color: var(--bg); transform: translateY(-200%); }
+.skip-link:focus { transform: none; color: var(--bg); }
+.site-header { position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--border); }
+.navigation { display: flex; align-items: center; justify-content: space-between; gap: .75rem; position: relative; min-height: 76px; }
+.brand { color: var(--text); font-weight: 700; text-decoration: none; font-size: 1rem; }
+.brand span { color: var(--gold); }
+.nav-links { display: none; list-style: none; padding: 1rem; margin: 0; position: absolute; top: 100%; left: 0; right: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 0 0 var(--radius) var(--radius); }
+.nav-links.is-open { display: flex; flex-direction: column; }
+.nav-links a { display: block; padding: .7rem 1rem; color: var(--muted); text-decoration: none; border-bottom: 2px solid transparent; }
+.nav-links a:hover { background: var(--raised); color: var(--text); }
+.nav-links a[aria-current] { color: var(--gold); border-bottom-color: var(--gold); }
+.hero { display: grid; gap: 2.5rem; align-items: center; }
+.hero-specialty { color: var(--muted); font-size: 1rem; margin-top: 1rem; }
+.hero .lead { margin-top: 1.5rem; max-width: 57ch; }
+.portrait-frame { justify-self: center; width: min(100%, 280px); padding: .75rem; border: 1px solid var(--border); border-radius: 50% 50% 1rem 1rem; background: var(--surface); }
+.portrait { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 50% 50% .5rem .5rem; }
+.panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.featured { display: grid; gap: 2rem; padding: clamp(1.25rem, 4vw, 3rem); border-top: 3px solid var(--gold); }
+.featured h3 { font-size: clamp(2.5rem, 5vw, 3.5rem); }
+.status-label { display: inline-block; color: var(--gold); border: 1px solid var(--gold); padding: .2rem .7rem; border-radius: 2rem; font-size: .8rem; }
+.feature-outline { padding: 1.5rem; background: var(--raised); border-radius: .75rem; align-self: center; }
+.feature-outline ul { list-style: none; padding: 0; }
+.feature-outline li { padding-block: .75rem; border-bottom: 1px solid var(--border); }
+.subsection-title { margin-top: 4rem; }
+.project-grid, .background-grid, .case-sections, .gallery-grid { display: grid; gap: 1.5rem; }
+.project-card { overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.project-cover { width: 100%; aspect-ratio: 16 / 10; object-fit: contain; background: var(--raised); padding: .5rem; }
+.project-card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.project-card h3 { margin-bottom: 1rem; }
+.project-card p { color: var(--muted); }
+.background-grid .panel, .case-sections .panel { padding: 1.5rem; }
+.tag-list { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: 1rem 0 0; }
+.tag-list li { padding: .3rem .7rem; background: var(--raised); border-radius: .3rem; color: var(--muted); }
+.contact-section { border-block: 1px solid var(--border); background: var(--surface); }
+.contact-grid { display: grid; gap: 2rem; }
+.email-link { overflow-wrap: anywhere; }
+.contact-form { padding: clamp(1rem, 3vw, 2rem); background: var(--bg); }
+.form-control { background: var(--surface); color: var(--text); border-color: #8298b5; min-height: 44px; }
+.form-control:focus { background: var(--surface); color: var(--text); border-color: var(--gold); }
+.form-feedback { margin-top: 1rem; min-height: 1.65em; color: var(--interaction); }
+.error-text { color: #fda4af; }
+.site-footer { padding-block: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; color: var(--muted); font-size: .9rem; }
+.site-footer p { margin: 0; }
+.case-header { padding-block: 2.5rem; }
+.tech-line { border-left: 3px solid var(--gold); padding-left: 1rem; color: var(--interaction); }
+.case-sections h2 { font-size: 1.5rem; }
+.case-sections p:last-child { color: var(--muted); margin-bottom: 0; }
+.case-sections ul { color: var(--muted); padding-left: 1.25rem; margin-bottom: 0; }
+.case-sections li + li { margin-top: .35rem; }
+.gallery-group { margin-top: 2.5rem; }
+.gallery-grid figure { margin: 0; padding: .75rem; min-width: 0; }
+.gallery-grid img { width: 100%; height: auto; display: block; }
+.gallery-grid figcaption { padding: 1rem .25rem .25rem; color: var(--muted); font-size: .875rem; }
+.empty-state { padding-block: 4rem; max-width: 65ch; }
+@media (min-width: 768px) {
+  .menu-toggle { display: none; }
+  .nav-links, .nav-links.is-open { display: flex; flex-direction: row; position: static; background: none; border: 0; padding: 0; gap: .5rem; }
+  .hero { grid-template-columns: 1.7fr 1fr; }
+  .featured { grid-template-columns: 1.4fr 1fr; }
+  .project-grid, .case-sections, .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-grid { grid-template-columns: 1fr 1.1fr; gap: 3rem; }
+  .background-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  background-color: transparent; 
-}
-
-.card {
-  background-color: var(--color-light-gray); 
-  color: #1a1a1a; 
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: left;
-}
-
-/* Forzar colores de botones (si bootstrap aún los sobrescribe) */
-.btn-primary {
-  background-color: var(--bs-primary) !important;
-  border-color: var(--bs-primary) !important;
-  color: #000000 !important;
-}
-
-.btn-outline-primary {
-  color: var(--bs-primary) !important;
-  border-color: var(--bs-primary) !important;
-}
-
-.btn-outline-primary:hover {
-  background-color: var(--bs-primary) !important;
-  border-color: var(--bs-primary) !important;
-  color: #000000 !important;
-}
-
-
-/* ========================================= */
-/* ESTILOS PERSONALIZADOS PARA EL AVATAR */
-/* ========================================= */
-
-.profile-avatar {
-    /* Borde grueso de color Gold Accent */
-    border: 3px solid var(--color-gold-accent); 
-    
-    /* Pequeña transición para que los efectos de hover sean suaves */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-/* Efecto al pasar el ratón (Hover Effect) */
-.profile-avatar:hover {
-    /* Efecto de levantamiento: Mueve la foto ligeramente hacia arriba (zoom sutil) */
-    transform: scale(1.05); 
-    
-    /* Sombra más intensa al hacer hover */
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.8); 
-    /* El valor rgba es el de tu Gold Accent (#FBBF24) con opacidad */
+@media (min-width: 1024px) { .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }

@@ -1,35 +1,16 @@
 <template>
-  <section class="hero mb-5">
-    <div class="card" style="width: 18rem;">
-</div>
-    <div class="row align-items-center">
-      <div class="col-md-7">
-        <h2 class="fw-bold display-5 mb-3 text-primary">¡Hola, qué tal! Soy Mariano.</h2>
-        
-        <h3 class="fw-light mb-4 text-white">
-          Desarrollador Backend apasionado por crear soluciones robustas y escalables.
-        </h3>
-        
-        <ul class="list-unstyled lead">
-          <li>
-            <i class="bi bi-gear-fill text-primary me-2"></i> Técnico en Programación especializado en C# y SQL.
-          </li>
-          <li>
-            <i class="bi bi-code-slash text-primary me-2"></i> Diseño y desarrollo código robusto, escalable y optimizado para el negocio.
-          </li>
-          <li>
-            <i class="bi bi-award-fill text-primary me-2"></i> Busco la excelencia técnica continua en proyectos ambiciosos y desafiantes.
-          </li>
-        </ul>
+  <section class="hero section-space" aria-labelledby="hero-title">
+    <div>
+      <p class="eyebrow">Mariano Pedrotti</p>
+      <h1 id="hero-title">Backend Developer <span class="gold">.NET</span></h1>
+      <p class="hero-specialty">Desarrollo Full Stack con Vue 3 y TypeScript</p>
+      <p class="lead">Desarrollo backend con C#, ASP.NET Core y SQL Server, y aplicaciones web que resuelven necesidades reales de gestión.</p>
+      <p class="muted">Técnico Universitario en Programación — UTN San Francisco.</p>
+      <div class="actions">
+        <RouterLink :to="{ name: 'home', hash: '#projects' }" class="btn btn-primary">Conocer mis proyectos <span aria-hidden="true">↗</span></RouterLink>
+        <RouterLink :to="{ name: 'home', hash: '#contact' }" class="btn btn-outline-primary">Contactar</RouterLink>
       </div>
-
-     <div class="col-md-5 text-center">
-    <img 
-        src="/imagen/fotoPortafolio.jpg" 
-        alt="Foto de Mariano Pedrotti" 
-        class="img-fluid rounded-pill shadow-lg profile-avatar" style="max-width: 300px; height: auto;" 
-    />
-</div>
     </div>
+    <div class="portrait-frame"><img src="/imagen/fotoPortafolio.jpg" alt="Mariano Pedrotti" class="portrait" fetchpriority="high" /></div>
   </section>
 </template>

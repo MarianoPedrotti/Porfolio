@@ -1,103 +1,61 @@
-<template>
-  <footer id="contact" class="py-5 mt-5 bg-light border-top">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6 text-center">
-          <h3 class="fw-bold mb-3 text-black">¿Tienes un proyecto en mente?</h3>
-          <p class="text-muted mb-4">
-            Envíame un mensaje y hablemos sobre cómo puedo ayudarte en el Backend.
-          </p>
-
-          <form @submit.prevent="sendEmail" class="text-start mb-5 shadow-sm p-4 bg-white rounded">
-            <div class="mb-3">
-              <label for="name" class="form-label small fw-bold">Nombre</label>
-              <input type="text" v-model="formData.name" class="form-control form-control-sm" id="name" required placeholder="Tu nombre">
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label small fw-bold">Email</label>
-              <input type="email" v-model="formData.email" class="form-control form-control-sm" id="email" required placeholder="nombre@ejemplo.com">
-            </div>
-            <div class="mb-3">
-              <label for="message" class="form-label small fw-bold">Mensaje</label>
-              <textarea v-model="formData.message" class="form-control form-control-sm" id="message" rows="3" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-sm w-100" :disabled="isSending">
-              {{ isSending ? 'Enviando...' : 'Enviar Mensaje' }}
-            </button>
-          </form>
-
-          <div class="d-flex justify-content-center gap-4 mb-4">
-            <a href="https://github.com/MarianoPedrotti" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="contact-link" 
-               title="Ver GitHub">
-              <i class="bi bi-github fs-3"></i>
-            </a>
-
-            <a href="https://www.linkedin.com/in/mariano-pedrotti43" 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               class="contact-link" 
-               title="Conectar en LinkedIn">
-              <i class="bi bi-linkedin fs-3"></i>
-            </a>
-          </div>
-
-          <p class="small text-secondary mb-0">© {{ currentYear }} Mariano Pedrotti</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-</template>
-
-<script setup>
-import { ref } from 'vue';
-import emailjs from '@emailjs/browser';
-
-const currentYear = new Date().getFullYear();
-const isSending = ref(false);
-
-const formData = ref({
-  name: '',
-  email: '',
-  message: ''
-});
-
-const sendEmail = async () => {
-  isSending.value = true;
-  try {
-    // Usando tus credenciales actuales
-    await emailjs.send(
-      'service_zeldt7v', 
-      'template_xuuzdt8', 
-      formData.value, 
-      'm_UAn-Ijsdormo6iB'
-    );
-    alert('¡Mensaje enviado con éxito! Te contactaré pronto.');
-    formData.value = { name: '', email: '', message: '' }; 
-  } catch (error) {
-    alert('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.');
-    console.error(error);
-  } finally {
-    isSending.value = false;
+<script setup lang="ts">
+import { ref } from 'vue'
+import emailjs from '@emailjs/browser'
+const isSending = ref(false)
+const feedback = ref('')
+const failed = ref(false)
+const formData = ref({ name: '', email: '', message: '' })
+async function sendEmail() {
+  if (isSending.value) return
+  failed.value = false
+  feedback.value = ''
+  const payload = {
+    name: formData.value.name.trim(),
+    email: formData.value.email.trim(),
+    message: formData.value.message.trim(),
   }
-};
+  if (!payload.name || !payload.email || !payload.message) {
+    failed.value = true
+    feedback.value = 'Completá todos los campos con contenido antes de enviar.'
+    return
+  }
+  isSending.value = true
+  feedback.value = 'Enviando tu mensaje…'
+  try {
+    await emailjs.send('service_zeldt7v', 'template_xuuzdt8', payload, 'm_UAn-Ijsdormo6iB')
+    feedback.value = 'Tu mensaje se envió correctamente. Gracias por contactarme.'
+    formData.value = { name: '', email: '', message: '' }
+  } catch {
+    failed.value = true
+    feedback.value = 'No se pudo enviar el mensaje. Tus datos siguen en el formulario; intentá nuevamente o usá el enlace de correo.'
+  } finally {
+    isSending.value = false
+  }
+}
 </script>
 
-<style scoped>
-.contact-link { 
-  color: #6c757d; 
-  transition: 0.3s; 
-  text-decoration: none;
-}
-.contact-link:hover { 
-  color: #0d6efd; 
-  transform: translateY(-3px); 
-  display: inline-block; 
-}
-.form-control:focus { 
-  border-color: #0d6efd; 
-  box-shadow: none; 
-}
-</style>
+<template>
+  <section id="contact" class="contact-section section-space" aria-labelledby="contact-title" tabindex="-1">
+    <div class="site-container contact-grid">
+      <div>
+        <p class="eyebrow">Contacto</p><h2 id="contact-title">Conversemos.</h2>
+        <p class="lead">¿Una oportunidad laboral o un proyecto de desarrollo?</p>
+        <p class="muted">Podés escribirme sobre el contexto y lo que necesitás desarrollar.</p>
+        <a class="email-link" href="mailto:marianopedrotti43@gmail.com">marianopedrotti43@gmail.com</a>
+        <div class="actions">
+          <a href="https://github.com/MarianoPedrotti" target="_blank" rel="noopener noreferrer">GitHub <span class="visually-hidden">(nueva pestaña)</span>↗</a>
+          <a href="https://www.linkedin.com/in/mariano-pedrotti43" target="_blank" rel="noopener noreferrer">LinkedIn <span class="visually-hidden">(nueva pestaña)</span>↗</a>
+        </div>
+      </div>
+      <form class="panel contact-form" @submit.prevent="sendEmail" :aria-busy="isSending">
+        <p class="small muted">Todos los campos son obligatorios.</p>
+        <div class="mb-3"><label for="name" class="form-label">Nombre</label><input id="name" v-model="formData.name" class="form-control" name="name" autocomplete="name" maxlength="120" required :readonly="isSending" /></div>
+        <div class="mb-3"><label for="email" class="form-label">Correo electrónico</label><input id="email" v-model="formData.email" class="form-control" name="email" type="email" autocomplete="email" maxlength="254" required :readonly="isSending" /></div>
+        <div class="mb-3"><label for="message" class="form-label">Mensaje</label><textarea id="message" v-model="formData.message" class="form-control" name="message" rows="5" maxlength="5000" required :readonly="isSending"></textarea></div>
+        <button class="btn btn-primary" type="submit" :disabled="isSending">{{ isSending ? 'Enviando…' : 'Enviar mensaje' }}</button>
+        <p class="form-feedback mb-0" :class="{ 'error-text': failed }" role="status" aria-live="polite" aria-atomic="true">{{ feedback }}</p>
+      </form>
+    </div>
+  </section>
+  <footer class="site-container site-footer"><p>© {{ new Date().getFullYear() }} Mariano Pedrotti</p><RouterLink to="/">Volver al inicio ↑</RouterLink></footer>
+</template>
