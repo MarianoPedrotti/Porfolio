@@ -9,6 +9,7 @@ export const projectsData: Project[] = [
       summary: 'Sistema de gestión comercial utilizado en producción que centraliza la administración de clientes, productos, vehículos y ventas, incorporando financiación, gestión de cuotas, seguimiento de pagos y cuenta corriente.',
       stack: 'ASP.NET Core · Entity Framework Core · SQL Server · Vue 3 · TypeScript',
       description: 'Sistema de gestión comercial utilizado en producción que centraliza la administración de clientes, productos, vehículos y ventas, incorporando financiación, gestión de cuotas, seguimiento de pagos y cuenta corriente.',
+      demoLink: 'https://drive.google.com/file/d/1_vZQIjpDPUXjcqYw8ZXnmkUEs1bwwrWY/view?usp=drivesdk',
       route: { name: 'project-detail', params: { slug: 'optigest' } },
       sections: [
         { title: 'Problema de negocio', text: 'El negocio necesitaba centralizar procesos comerciales gestionados mediante planillas Excel y operaciones manuales, incluyendo ventas, financiación y seguimiento de pagos.' },
