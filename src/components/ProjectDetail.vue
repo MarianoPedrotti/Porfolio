@@ -28,6 +28,7 @@ const project = computed(() => projectsData.find(item => item.slug === route.par
       </div>
       <MediaGallery :items="project.gallery" />
       <div class="actions section-space">
+        <a v-if="project.demoLink" :href="project.demoLink" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ver demo en video <span class="visually-hidden">(nueva pestaña)</span>↗</a>
         <a v-if="project.link" :href="project.link" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ver repositorio <span class="visually-hidden">(nueva pestaña)</span>↗</a>
         <RouterLink :to="{ name: 'home', hash: '#contact' }" class="btn btn-outline-primary">Contactar</RouterLink>
         <RouterLink :to="{ name: 'home', hash: '#projects' }">Explorar proyectos</RouterLink>

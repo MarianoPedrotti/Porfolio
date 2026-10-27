@@ -17,6 +17,7 @@ export interface Project {
   stack: string;
   description: string;
   link?: string;
+  demoLink?: string;
   slug: string;
   route: { name: string; params: { slug: string } };
   gallery: GalleryItem[];
